@@ -19,7 +19,7 @@ router.put(
 router.get("/get-category", categoryController.getAll);
 
 router.get(
-  "/single-category/:id",
+  "/single-category/:slug",
 
   categoryController.getOne
 );

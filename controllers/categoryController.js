@@ -74,8 +74,8 @@ exports.getAll = async (req, res) => {
 
 exports.getOne = async (req, res) => {
   try {
-    const { id } = req.params;
-    const category = await Category.findById(id);
+    const { slug } = req.params;
+    const category = await Category.findOne({ slug });
     res.status(200).send({
       success: true,
       message: "Категория успешно получена!",
@@ -92,9 +92,8 @@ exports.getOne = async (req, res) => {
 };
 
 exports.delete = async (req, res) => {
-  const { id } = req.params;
-
   try {
+    const { id } = req.params;
     const category = await Category.findByIdAndDelete(id);
     res.status(200).send({
       success: true,
