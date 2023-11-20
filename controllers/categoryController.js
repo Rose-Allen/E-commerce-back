@@ -56,7 +56,7 @@ exports.update = async (req, res) => {
 
 exports.getAll = async (req, res) => {
   try {
-    const categories = await Category.find();
+    const categories = await Category.find({});
     res.status(200).send({
       success: true,
       message: "Категории успешно получены !",
